@@ -23,7 +23,7 @@ def guess_number():
         if user_number < 1 or user_number > 10:
             print("Вы ввели число вне диапазона [1; 10], попробуйте еще раз.")
         elif user_number == random_number:
-            print("Вы угадали, поздравляем!")
+            print("Вы угадали, поздравляю с победой!")
             break
         elif user_number < random_number:
             print("Слишком мало, попробуйте еще раз.")
