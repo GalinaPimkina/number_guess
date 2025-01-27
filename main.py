@@ -12,14 +12,24 @@
 
 
 from random import randint
+import time
 
 
 def guess_number():
     print("Привет! Я загадаю число от 1 до 10, а тебе нужено будет его угадать. Удачи! :)")
     random_number = randint(1, 10)
+    time.sleep(1)
+    print("Введите число:")
 
     while True:
-        user_number = int(input())
+
+        user_number = input()
+        try:
+            user_number = int(user_number)
+        except ValueError:
+            print("Нужно ввести число от 1 до 10.")
+            continue
+
         if user_number < 1 or user_number > 10:
             print("Вы ввели число вне диапазона [1; 10], попробуйте еще раз.")
         elif user_number == random_number:
