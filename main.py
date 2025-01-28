@@ -15,32 +15,48 @@ from random import randint
 import time
 
 
+def check_value(value):
+    return True if str(value).isdigit() else False
+
+
 def guess_number():
-    print("Привет! Я загадаю число от 1 до 10, а тебе нужено будет его угадать. Удачи! :)")
     random_number = randint(1, 10)
-    time.sleep(1)
-    print("Введите число:")
 
     while True:
 
-        user_number = input()
         try:
-            user_number = int(user_number)
+            user_number = int(input())
         except ValueError:
             print("Нужно ввести число от 1 до 10.")
             continue
 
         if user_number < 1 or user_number > 10:
             print("Вы ввели число вне диапазона [1; 10], попробуйте еще раз.")
+            continue
+
         elif user_number == random_number:
-            print("Вы угадали, поздравляю с победой!")
+            print(f"Угадал! Это было число {random_number}. Поздравляю с победой!")
             break
+
         elif user_number < random_number:
-            print("Слишком мало, попробуйте еще раз.")
+            print("Слишком мало, попробуй еще раз.")
             continue
+
         elif user_number > random_number:
-            print("Слишком много, попробуйте еще раз.")
+            print("Слишком много, попробуй еще раз.")
             continue
 
 
-guess_number()
+if __name__ == "__main__":
+    print("Привет! Я загадаю число от 1 до 10, а тебе нужено будет его угадать. Удачи! :)")
+    time.sleep(1)
+    print("Введи число от 1 до 10.")
+
+    guess_number()
+
+
+
+
+
+
+
